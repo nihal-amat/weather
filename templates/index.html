@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+            <div class="user-panel" id="user-panel">
+                <div id="login-status">
+                    <span id="username-display">Not logged in</span>
+                    <button id="login-btn" class="btn">Login</button>
+                    <button id="register-btn" class="btn">Register</button>
+                    <button id="logout-btn" class="btn" style="display: none;">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="city-input" placeholder="Enter city name...">
+                    <button id="search-btn" class="btn"><i class="fas fa-search"></i> Search</button>
+                </div>
+                <div class="favorites">
+                    <h3>Favorite Cities</h3>
+                    <ul id="favorites-list"></ul>
+                </div>
+            </div>
+
+            <div class="weather-container">
+                <div class="current-weather" id="current-weather">
+                    <!-- Weather data will be displayed here -->
+                    <div class="placeholder">
+                        <i class="fas fa-cloud-sun fa-3x"></i>
+                        <p>Search for a city to see weather information</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="history">History</button>
+                <button class="tab-btn" data-tab="stats">Statistics</button>
+                <button class="tab-btn" data-tab="visualization">Visualization</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="history-tab" class="tab-pane active">
+                    <h2>Search History</h2>
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>City</th>
+                                <th>Temperature</th>
+                                <th>Description</th>
+                                <th>Date/Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-data">
+                            <!-- History data will be displayed here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="stats-tab" class="tab-pane">
+                    <h2>Weather Statistics</h2>
+                    <div id="stats-container">
+                        <!-- Statistics will be displayed here -->
+                    </div>
+                </div>
+                
+                <div id="visualization-tab" class="tab-pane">
+                    <h2>Temperature Trends</h2>
+                    <div class="visualization-controls">
+                        <label for="days-select">Time period: </label>
+                        <select id="days-select">
+                            <option value="7">Last 7 days</option>
+                            <option value="14">Last 14 days</option>
+                            <option value="30">Last 30 days</option>
+                        </select>
+                        <button id="update-chart-btn" class="btn">Update Chart</button>
+                    </div>
+                    <div class="chart-container">
+                        <img id="temp-chart" src="" alt="Temperature chart">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Weather Dashboard - Python Full Stack Demo Application</p>
+            <p><small>Implementing concepts from Python Agenda weeks 1-3</small></p>
+        </footer>
+    </div>
+
+    <!-- Modal for login and registration -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" data-tab="login-form">Login</button>
+                <button class="modal-tab-btn" data-tab="register-form">Register</button>
+            </div>
+            
+            <div id="login-form" class="modal-tab-pane active">
+                <h2>Login</h2>
+                <form id="login-form-el">
+                    <div class="form-group">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <p id="login-message" class="message"></p>
+                </form>
+            </div>
+            
+            <div id="register-form" class="modal-tab-pane">
+                <h2>Register</h2>
+                <form id="register-form-el">
+                    <div class="form-group">
+                        <label for="register-username">Username:</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email:</label>
+                        <input type="email" id="register-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password:</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password:</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <p id="register-message" class="message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='js/script.js') }}"></script>
+</body>
+</html>

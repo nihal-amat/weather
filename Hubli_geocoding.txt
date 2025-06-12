@@ -1,0 +1,24 @@
+{
+    "results": [
+        {
+            "id": 1269920,
+            "name": "Hubballi",
+            "latitude": 15.34776,
+            "longitude": 75.13378,
+            "elevation": 627.0,
+            "feature_code": "PPL",
+            "country_code": "IN",
+            "admin1_id": 1267701,
+            "admin2_id": 1272797,
+            "admin3_id": 9166493,
+            "timezone": "Asia/Kolkata",
+            "population": 840214,
+            "country_id": 1269750,
+            "country": "India",
+            "admin1": "Karnataka",
+            "admin2": "Dharwad",
+            "admin3": "Hubli"
+        }
+    ],
+    "generationtime_ms": 0.67925453
+}
