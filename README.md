@@ -127,17 +127,3 @@ You can extend this application in several ways:
 - Add social sharing features
 - Create a mobile-friendly PWA version
 
-## Performance Optimization
-
-To improve model performance stability and reduce variability, the application implements these techniques:
-
-1. Fixed random seeds for reproducibility
-2. Batch normalization throughout the model
-3. Aggressive gradient clipping (max_norm=0.5)
-4. L2 regularization for loss function
-5. Increased dropout rates (from 0.3 to 0.4)
-6. Feature normalization with StandardScaler
-7. K-fold cross-validation (5 folds)
-8. Model ensembling to average predictions
-9. Learning rate scheduler with warmup
-10. Residual connections in network architecture
